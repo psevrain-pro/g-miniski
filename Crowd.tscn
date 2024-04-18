@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://dovy01k670dj6"]
+
+[ext_resource type="Texture2D" uid="uid://c4jo347x00n74" path="res://sprites/crowd_a.png" id="1_jvrtd"]
+[ext_resource type="Script" path="res://Crowd.gd" id="2_kp57a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1601"]
+atlas = ExtResource("1_jvrtd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xumwv"]
+atlas = ExtResource("1_jvrtd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gi3e"]
+atlas = ExtResource("1_jvrtd")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_714or"]
+atlas = ExtResource("1_jvrtd")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yp14"]
+atlas = ExtResource("1_jvrtd")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibyrf"]
+atlas = ExtResource("1_jvrtd")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaqiu"]
+atlas = ExtResource("1_jvrtd")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7smj"]
+atlas = ExtResource("1_jvrtd")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73dnc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1601")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xumwv")
+}],
+"loop": true,
+"name": &"crowd_1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gi3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_714or")
+}],
+"loop": true,
+"name": &"crowd_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yp14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibyrf")
+}],
+"loop": true,
+"name": &"crowd_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaqiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7smj")
+}],
+"loop": true,
+"name": &"crowd_4",
+"speed": 5.0
+}]
+
+[node name="Crowd" type="AnimatedSprite2D"]
+position = Vector2(42, 263)
+sprite_frames = SubResource("SpriteFrames_73dnc")
+animation = &"crowd_1"
+script = ExtResource("2_kp57a")

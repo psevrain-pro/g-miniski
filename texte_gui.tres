@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bhtwuofvsffn0"]
+
+[ext_resource type="FontFile" uid="uid://boo64cw7jw35s" path="res://Daydream.ttf" id="1_f04vv"]
+
+[resource]
+default_font = ExtResource("1_f04vv")
+default_font_size = 8

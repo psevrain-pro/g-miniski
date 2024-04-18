@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://pfobeeasvt4n"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_le8t8"]
+[ext_resource type="Texture2D" uid="uid://cjr2itknflwo1" path="res://sprites/tile_0059.png" id="2_8k2r4"]
+[ext_resource type="Texture2D" uid="uid://djkm7s2dx0mm2" path="res://sprites/tile_0083.png" id="3_hof86"]
+[ext_resource type="Texture2D" uid="uid://dmcwlqyh7dmj6" path="res://sprites/tile_0082.png" id="4_8x0rr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5c88t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hof86")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8x0rr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hof86")
+}],
+"loop": false,
+"name": &"pousse",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k7qby"]
+radius = 6.0
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_le8t8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+lifetime = 0.3
+emission_shape = 2
+emission_sphere_radius = 4.62
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 10.0
+angle_max = 20.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.717647, 0.823529, 0.921569, 1)
+
+[node name="trace" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("2_8k2r4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5c88t")
+animation = &"pousse"
+autoplay = "pousse"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_k7qby")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, 120)
+
+[node name="timer_pousse" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="timer_jump" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="timer_jump" to="." method="_on_fin_jump"]
